@@ -1,5 +1,10 @@
 # CSharpBrasil.Extensions.Caching.LiteDb
 
+[![NuGet](https://img.shields.io/nuget/v/CSharpBrasil.Extensions.Caching.LiteDb.svg)](https://www.nuget.org/packages/CSharpBrasil.Extensions.Caching.LiteDb)
+[![Downloads](https://img.shields.io/nuget/dt/CSharpBrasil.Extensions.Caching.LiteDb.svg)](https://www.nuget.org/packages/CSharpBrasil.Extensions.Caching.LiteDb)
+
+![](icon.png)
+
 A lightweight and embeddable implementation of `IDistributedCache` using [LiteDB](https://www.litedb.org/), designed for .NET applications that require local distributed caching without external dependencies such as Redis or SQL Server.
 
 ## Features
