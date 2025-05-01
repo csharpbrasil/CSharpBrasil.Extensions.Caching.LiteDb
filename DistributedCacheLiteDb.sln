@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpBrasil.Extensions.Caching.LiteDb", "CSharpBrasil.Extensions.Caching.LiteDb\CSharpBrasil.Extensions.Caching.LiteDb.csproj", "{4F69E680-4201-40BC-AB57-BA3C8715D761}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution Folder", "{782DD272-576E-4421-B51F-371CFFF7A74B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		icon.png = icon.png
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpBrasil.Extensions.Caching.LiteDb.Tests", "CSharpBrasil.Extensions.Caching.LiteDb.Tests\CSharpBrasil.Extensions.Caching.LiteDb.Tests.csproj", "{A49421EB-CED1-403E-84AF-E57CEB9DD60F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{80DE7E5F-5859-476E-8739-A4394899412B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{570A89FB-31FF-4991-BE2F-FBB8FAC7DEC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppSample", "samples\ConsoleAppSample\ConsoleAppSample.csproj", "{A43BE5E8-3894-4BE8-AD4C-0C63CFE6B0B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiSample", "samples\ApiSample\ApiSample.csproj", "{B2314D47-B343-446C-A3E1-9AC16A5935C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F69E680-4201-40BC-AB57-BA3C8715D761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F69E680-4201-40BC-AB57-BA3C8715D761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F69E680-4201-40BC-AB57-BA3C8715D761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F69E680-4201-40BC-AB57-BA3C8715D761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A49421EB-CED1-403E-84AF-E57CEB9DD60F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A49421EB-CED1-403E-84AF-E57CEB9DD60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A49421EB-CED1-403E-84AF-E57CEB9DD60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A49421EB-CED1-403E-84AF-E57CEB9DD60F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A43BE5E8-3894-4BE8-AD4C-0C63CFE6B0B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A43BE5E8-3894-4BE8-AD4C-0C63CFE6B0B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A43BE5E8-3894-4BE8-AD4C-0C63CFE6B0B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A43BE5E8-3894-4BE8-AD4C-0C63CFE6B0B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2314D47-B343-446C-A3E1-9AC16A5935C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2314D47-B343-446C-A3E1-9AC16A5935C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2314D47-B343-446C-A3E1-9AC16A5935C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2314D47-B343-446C-A3E1-9AC16A5935C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A49421EB-CED1-403E-84AF-E57CEB9DD60F} = {570A89FB-31FF-4991-BE2F-FBB8FAC7DEC1}
+		{A43BE5E8-3894-4BE8-AD4C-0C63CFE6B0B6} = {80DE7E5F-5859-476E-8739-A4394899412B}
+		{B2314D47-B343-446C-A3E1-9AC16A5935C7} = {80DE7E5F-5859-476E-8739-A4394899412B}
+	EndGlobalSection
+EndGlobal
