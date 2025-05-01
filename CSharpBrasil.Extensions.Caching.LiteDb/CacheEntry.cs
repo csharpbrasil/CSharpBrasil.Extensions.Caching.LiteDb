@@ -1,6 +1,4 @@
-﻿using LiteDB;
-
-namespace CSharpBrasil.Extensions.Caching.LiteDb;
+﻿namespace CSharpBrasil.Extensions.Caching.LiteDb;
 
 public class CacheEntry
 {

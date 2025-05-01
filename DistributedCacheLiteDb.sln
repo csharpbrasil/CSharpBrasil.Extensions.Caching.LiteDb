@@ -6,9 +6,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpBrasil.Extensions.Cac
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{80DE7E5F-5859-476E-8739-A4394899412B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppSample", "samples\ConsoleAppSample\ConsoleAppSample.csproj", "{A43BE5E8-3894-4BE8-AD4C-0C63CFE6B0B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUseHostServiceSample", "samples\ConsoleUseHostServiceSample\ConsoleUseHostServiceSample.csproj", "{A43BE5E8-3894-4BE8-AD4C-0C63CFE6B0B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiSample", "samples\ApiSample\ApiSample.csproj", "{B2314D47-B343-446C-A3E1-9AC16A5935C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppSample", "ConsoleAppSample\ConsoleAppSample.csproj", "{75999F04-5B34-4962-ABAA-C51F1C84C752}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,9 +34,14 @@ Global
 		{B2314D47-B343-446C-A3E1-9AC16A5935C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2314D47-B343-446C-A3E1-9AC16A5935C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2314D47-B343-446C-A3E1-9AC16A5935C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75999F04-5B34-4962-ABAA-C51F1C84C752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75999F04-5B34-4962-ABAA-C51F1C84C752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75999F04-5B34-4962-ABAA-C51F1C84C752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75999F04-5B34-4962-ABAA-C51F1C84C752}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A43BE5E8-3894-4BE8-AD4C-0C63CFE6B0B6} = {80DE7E5F-5859-476E-8739-A4394899412B}
 		{B2314D47-B343-446C-A3E1-9AC16A5935C7} = {80DE7E5F-5859-476E-8739-A4394899412B}
+		{75999F04-5B34-4962-ABAA-C51F1C84C752} = {80DE7E5F-5859-476E-8739-A4394899412B}
 	EndGlobalSection
 EndGlobal

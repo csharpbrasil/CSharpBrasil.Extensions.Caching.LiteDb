@@ -1,9 +1,4 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Caching.Distributed;
-using CSharpBrasil.Extensions.Caching.LiteDb;
-
-var host = Host.CreateDefaultBuilder(args)
+﻿var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
         services.AddLiteDbDistributedCache(options =>

@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using CSharpBrasil.Extensions.Caching.LiteDb;
 

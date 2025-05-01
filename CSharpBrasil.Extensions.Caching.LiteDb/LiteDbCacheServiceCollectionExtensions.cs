@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace CSharpBrasil.Extensions.Caching.LiteDb;
+﻿namespace CSharpBrasil.Extensions.Caching.LiteDb;
 
 public static class LiteDbCacheServiceCollectionExtensions
 {

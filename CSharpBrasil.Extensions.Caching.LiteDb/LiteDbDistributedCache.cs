@@ -1,17 +1,11 @@
-﻿using LiteDB;
-using LiteDB.Engine;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
-
-namespace CSharpBrasil.Extensions.Caching.LiteDb;
+﻿namespace CSharpBrasil.Extensions.Caching.LiteDb;
 
 public class LiteDbDistributedCache : IDistributedCache, IDisposable
 {
     private readonly LiteDbDistributedCacheOptions _options;
     internal readonly LiteDatabase Db;
 
-    public LiteDbDistributedCache(IOptions<LiteDbDistributedCacheOptions> options, IHostApplicationLifetime lifetime)
+    public LiteDbDistributedCache(IOptions<LiteDbDistributedCacheOptions> options, IHostApplicationLifetime? lifetime = null)
     {
         _options = options.Value;
         
@@ -28,7 +22,8 @@ public class LiteDbDistributedCache : IDistributedCache, IDisposable
         var engine = new LiteEngine(engineSettings);
         Db = new LiteDatabase(engine, disposeOnClose: true);
 
-        lifetime.ApplicationStopping.Register(() => Db.Dispose());
+        if (lifetime != null)
+            lifetime.ApplicationStopping.Register(() => Db.Dispose());
     }
 
     public byte[]? Get(string key)

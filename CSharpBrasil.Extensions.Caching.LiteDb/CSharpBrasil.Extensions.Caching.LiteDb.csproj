@@ -1,12 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <IsPackable>true</IsPackable>        
         <PackageId>CSharpBrasil.Extensions.Caching.LiteDb</PackageId>
-        <Version>0.1.0</Version>
+        <Version>0.1.1</Version>
         <Authors>Raphael Augusto Ferroni Cardoso</Authors>
         <Company>C# Brasil</Company>
         <Description>Implementation of IDistributedCache using LiteDB as backend storage</Description>
@@ -16,6 +15,7 @@
         <Copyright>Copyright © 2025 C# Brasil</Copyright>
         <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <TargetFrameworks>net9.0;net8.0</TargetFrameworks>
     </PropertyGroup>
     
     <ItemGroup>
