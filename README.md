@@ -7,9 +7,10 @@ A lightweight and embeddable implementation of `IDistributedCache` using [LiteDB
 - Local persistent storage using a single `.db` file
 - Supports absolute and sliding expiration
 - Fully managed and dependency-free in .NET
-- Compatible with ASP.NET Core and .NET 6/7/8+
+- Compatible with ASP.NET Core, Console Apps and .NET 6/7/8+
 - Background cleanup of expired cache entries
-- Easy integration via `IServiceCollection`
+- Uses a single `LiteDatabase` instance with `FileMode.Exclusive`
+- Integrates cleanly via `IServiceCollection`
 
 ## Installation
 
@@ -19,9 +20,25 @@ Install via NuGet:
 dotnet add package CSharpBrasil.Extensions.Caching.LiteDb
 ```
 
-## Usage
+## Configuration Options
 
-### Configuration (Program.cs)
+```csharp
+public class LiteDbDistributedCacheOptions
+{
+    public string DatabasePath { get; set; } = "cache.db";
+    public string CollectionName { get; set; } = "cache";
+    public bool EnableAutoCleanup { get; set; } = true;
+    public TimeSpan CleanupInterval { get; set; } = TimeSpan.FromMinutes(10);
+    public bool ReadOnly { get; set; } = false;
+    public string? Password { get; set; }
+    public bool Upgrade { get; set; } = false;
+    public bool AutoRebuild { get; set; } = false;
+    public long InitialSize { get; set; } = 0;
+    public Collation Collation { get; set; } = Collation.Default;
+}
+```
+
+## ✅ Usage in ASP.NET Core (Minimal API or MVC)
 
 ```csharp
 builder.Services.AddLiteDbDistributedCache(options =>
@@ -30,10 +47,11 @@ builder.Services.AddLiteDbDistributedCache(options =>
     options.CollectionName = "cache";
     options.EnableAutoCleanup = true;
     options.CleanupInterval = TimeSpan.FromMinutes(5);
+    options.Password = "secure123";
 });
 ```
 
-### Example
+### Controller Example
 
 ```csharp
 [ApiController]
@@ -66,8 +84,40 @@ public class CacheController : ControllerBase
 }
 ```
 
+## ✅ Usage in a Console Application (with Host)
+
+```csharp
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Caching.Distributed;
+using CSharpBrasil.Extensions.Caching.LiteDb;
+
+var host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices(services =>
+    {
+        services.AddLiteDbDistributedCache(options =>
+        {
+            options.DatabasePath = "console-cache.db";
+            options.CollectionName = "cache";
+            options.Password = "secure123";
+        });
+    })
+    .Build();
+
+var cache = host.Services.GetRequiredService<IDistributedCache>();
+
+await cache.SetStringAsync("message", "Olá mundo!", new DistributedCacheEntryOptions
+{
+    AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(30)
+});
+
+var result = await cache.GetStringAsync("message");
+Console.WriteLine($"Mensagem em cache: {result}");
+
+await host.StopAsync();
+```
+
 ## License
 
-This project is licensed under the [MIT License](https://chatgpt.com/g/g-p-680e91f517d48191aaeede7438598dd6-c-brasil/c/LICENSE) © C# Brasil.
+This project is licensed under the [MIT License](LICENSE) © [C# Brasil](https://csharpbrasil.com.br).
 
----
