@@ -3,8 +3,6 @@ using LiteDB.Engine;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Polly;
-using Polly.Retry;
 
 namespace CSharpBrasil.Extensions.Caching.LiteDb;
 
@@ -21,7 +19,11 @@ public class LiteDbDistributedCache : IDistributedCache, IDisposable
         {
             Filename = _options.DatabasePath,
             ReadOnly = _options.ReadOnly,
-            Password = string.IsNullOrEmpty(_options.Password) ? null : _options.Password
+            Password = _options.Password,
+            Upgrade = _options.Upgrade,
+            AutoRebuild = _options.AutoRebuild,
+            InitialSize = _options.InitialSize,
+            Collation = _options.Collation
         };
         var engine = new LiteEngine(engineSettings);
         Db = new LiteDatabase(engine, disposeOnClose: true);
