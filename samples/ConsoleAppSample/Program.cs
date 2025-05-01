@@ -1,30 +1,28 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
-using CSharpBrasil.Extensions.Caching.LiteDb;
+﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Caching.Distributed;
+using CSharpBrasil.Extensions.Caching.LiteDb;
 
-var services = new ServiceCollection();
+var host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices(services =>
+    {
+        services.AddLiteDbDistributedCache(options =>
+        {
+            options.DatabasePath = "console-cache.db";
+            options.CollectionName = "cache";
+        });
+    })
+    .Build();
 
-services.AddLiteDbDistributedCache(options =>
-{
-    options.DatabasePath = "sample-cache.db";
-    options.CollectionName = "cache";
-    options.EnableAutoCleanup = true;
-    options.CleanupInterval = TimeSpan.FromMinutes(1);
-});
-
-var provider = services.BuildServiceProvider();
-var cache = provider.GetRequiredService<IDistributedCache>();
-
+var cache = host.Services.GetRequiredService<IDistributedCache>();
 
 const string key = "welcome-message";
 const string message = "Hello from LiteDb cache!";
 
-// Set
 await cache.SetStringAsync(key, message, new DistributedCacheEntryOptions
 {
     AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(10)
 });
 
-// Get
 var cached = await cache.GetStringAsync(key);
 Console.WriteLine($"Cached: {cached}");
