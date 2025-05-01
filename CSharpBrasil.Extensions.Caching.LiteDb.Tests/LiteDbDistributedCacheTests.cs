@@ -11,15 +11,14 @@ public class LiteDbDistributedCacheTests : IDisposable
 {
     private readonly string _dbPath = "test-cache.db";
     private readonly LiteDbDistributedCache _cache;
-    private readonly IHostApplicationLifetime _lifetime;
 
     public LiteDbDistributedCacheTests()
     {
         var services = new ServiceCollection();
         services.AddSingleton<IHostApplicationLifetime, TestHostApplicationLifetime>();
+        
         var provider = services.BuildServiceProvider();
-
-        _lifetime = provider.GetRequiredService<IHostApplicationLifetime>();
+        var lifetime = provider.GetRequiredService<IHostApplicationLifetime>();
 
         var options = new OptionsWrapper<LiteDbDistributedCacheOptions>(new LiteDbDistributedCacheOptions
         {
@@ -28,7 +27,7 @@ public class LiteDbDistributedCacheTests : IDisposable
             EnableAutoCleanup = false
         });
 
-        _cache = new LiteDbDistributedCache(options, _lifetime);
+        _cache = new LiteDbDistributedCache(options, lifetime);
     }
 
     [Fact]
@@ -41,7 +40,7 @@ public class LiteDbDistributedCacheTests : IDisposable
         var result = _cache.Get(key);
 
         result.Should().NotBeNull();
-        Encoding.UTF8.GetString(result!).Should().Be("hello");
+        Encoding.UTF8.GetString(result).Should().Be("hello");
     }
 
     [Fact]
